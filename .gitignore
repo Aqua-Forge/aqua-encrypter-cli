@@ -1,0 +1,9 @@
+# Ignore binaries and static libraries directories
+bin
+build
+
+# Tests module
+tests
+
+# Local configs
+.vscode
