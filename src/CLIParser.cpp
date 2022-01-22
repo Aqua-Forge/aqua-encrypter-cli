@@ -11,7 +11,7 @@ CLIParser::CLIParser(int argc, const char* argv[])
     this->parameters['d'] = (Parameter) {
         'd',
         "decrypt",
-        "Activate decrypt mode.",
+        "Uses the decrypt mode. The INPUT_FILENAME must be the ciphertext.",
         false,
         "",
     };
@@ -58,11 +58,20 @@ void CLIParser::printHeader()
     std::cout << "Aqua-Encrypter-CLI - Command line file encrypter v1.0" << std::endl;
     std::cout << "=====================================================" << std::endl;
     std::cout << "How it works:\n" << std::endl;
-    std::cout << "The encryption algorithm uses the Vignère cipher," << std::endl;
-    std::cout << "where the key (password) is repeated untill a text-" << std::endl;
-    std::cout << "sized key is obtained. Then, their position matched" << std::endl;
-    std::cout << "characters are added, as long with a salt, in order" << std::endl;
-    std::cout << "to generate the ciphertext." << std::endl;
+    std::cout << "The encryption algorithm uses a variation of the" << std::endl;
+    std::cout << "Vignère cipher, where the key (password) is repeated" << std::endl;
+    std::cout << "untill a text-sized key is obtained. Then, their" << std::endl;
+    std::cout << "position matched characters are added, as long with" << std::endl;
+    std::cout << "a salt, in order to generate the ciphertext. And" << std::endl;
+    std::cout << "this process is repeated if more than one key is" << std::endl;
+    std::cout << "provided.\n" << std::endl;
+    std::cout << "Safety tips:\n" << std::endl;
+    std::cout << "Your ciphertext will be more secure if you user more" << std::endl;
+    std::cout << "than one password layer. As well, a dictionary-" << std::endl;
+    std::cout << "assisted bruteforce attack can be frustrated if" << std::endl;
+    std::cout << "random characters are inserted in the middle of your" << std::endl;
+    std::cout << "plaintext. Lastly, the longer your key(s), the more" << std::endl;
+    std::cout << "secure your cipher will be." << std::endl;
     std::cout << "=====================================================" << std::endl;
 }
 
@@ -83,6 +92,6 @@ void CLIParser::printHelp()
         std::cout << "| --" << it->second.flagName;
         if (it->second.hasValue)
             std::cout << "=" << it->second.value;
-        std::cout << " : " << it->second.description << std::endl;
+        std::cout << "\n\n\t\t" << it->second.description << "\n\n";
     }
 }
