@@ -1,4 +1,4 @@
-# Aqua Template project makefile
+# Aqua Encrypter CLI project makefile
 
 # Compiler / Linker configs
 CC          := g++
@@ -21,7 +21,7 @@ CFGS_DIR     := configs
 PREFIX       := /usr/local
 
 # Filenames
-TARGET       := aqua-template
+TARGET       := aqua-encrypter
 TEST_TARGET  := main_tests
 SRC          := $(wildcard $(SRC_DIR)/*.cpp)
 H_SRC        := $(wildcard $(INCLUDE_DIR)/*.hpp)

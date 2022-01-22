@@ -1,10 +1,11 @@
-#include "HelloWorld.hpp"
+#include "CLIParser.hpp"
 
 
 int main(int argc, char const *argv[])
 {
-    HelloWorld hw;
-    hw.print();
+    CLIParser parser(argc, argv);
+    parser.printHeader();
+    parser.printHelp();
 
     return 0;
 }
