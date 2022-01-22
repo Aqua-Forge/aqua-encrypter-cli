@@ -1,6 +1,6 @@
-<h1>Project Title</h1>
+<h1>Aqua Encrypter CLI</h1>
 
-Project Description...
+Command line file encrypter
 
 ---
 
@@ -14,14 +14,19 @@ Project Description...
 
 # Dependencies
 
-- [Dependency 1](https://dep1.com)
-- [Dependency 2](https://dep2.com)
+- Linux / Unix-based System / MacOS
+- [C++17](https://en.cppreference.com/w/cpp/17)
+- [G++](https://linuxconfig.org/how-to-install-g-the-c-compiler-on-ubuntu-20-04-lts-focal-fossa-linux)
+- [Make](https://www.gnu.org/software/make/)
 
 ---
 
 # Installation
 
-
+```shell
+$ make
+$ sudo make install
+```
 
 ---
 
