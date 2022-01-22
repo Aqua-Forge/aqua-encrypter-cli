@@ -6,4 +6,7 @@ build
 tests
 
 # Local configs
-.vscode
+.vscode/*
+
+# Unignoring C++ parsing configs
+!.vscode/c_cpp_properties.json
