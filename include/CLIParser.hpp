@@ -4,27 +4,8 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <functional>
 #include "Helpers.hpp"
-
-#define CHAR_FLAG_MODE 'c'
-#define STR_FLAG_MODE 's'
-#define ENCRYPT_MODE 'e'
-#define DECRYPT_MODE 'd'
-
-
-/**
- * @brief ADT of a command line parameter
- */
-struct Parameter {
-    const char *flagName;
-    const char *description;
-    bool hasValue;
-    std::string valueInfo = "";
-    std::string value = "";
-    bool wasCalled = false;
-    std::function<void(std::string value)> action;
-};
+#include "Parameter.hpp"
 
 
 /**
@@ -34,32 +15,14 @@ struct Parameter {
 class CLIParser
 {
 public:
-    CLIParser(int argc, const char *argv[]);
+    CLIParser(std::map<char, Parameter> &parameters);
     ~CLIParser();
-
-    /**
-     * @brief Prints the loaded CLI args.
-     *
-     */
-    void printArgs();
-
-    /**
-     * @brief Prints CLI auxiliary/help information.
-     *
-     */
-    void printHeader();
-
-    /**
-     * @brief Prints CLI auxiliary/help information.
-     *
-     */
-    void printHelp();
 
     /**
      * @brief Parses the input arguments.
      * 
      */
-    void parse();
+    void parse(int argc, const char* argv[]);
 
     /**
      * @brief Checks if the parameter exists
@@ -75,12 +38,5 @@ public:
     void execute();
 
 private:
-    int argc;
-    std::vector<std::string> argv;
-    std::map<char, Parameter> parameters;
-    
-    char mode = ENCRYPT_MODE;
-    int encryptionLevels = 1;
-    std::string inputFile = "";
-    std::string outputFile = "encrypted";
+    std::map<char, Parameter> *parameters;
 };

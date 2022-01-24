@@ -1,12 +1,14 @@
 #include "CLIParser.hpp"
+#include "Encrypter.hpp"
 
 
 int main(int argc, char const *argv[])
 {
-    CLIParser parser(argc, argv);
+    Encrypter encrypter;
+    CLIParser parser(encrypter.getOptions());
 
     try {
-        parser.parse();
+        parser.parse(argc, argv);
         parser.execute();
     }
     catch (std::string err) {
