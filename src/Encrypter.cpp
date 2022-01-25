@@ -61,9 +61,7 @@ Encrypter::Encrypter()
     };
 }
 
-Encrypter::~Encrypter()
-{
-}
+Encrypter::~Encrypter() {}
 
 
 std::map<char, Parameter> &Encrypter::getOptions()

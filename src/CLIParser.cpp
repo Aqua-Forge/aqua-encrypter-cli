@@ -33,10 +33,26 @@ bool CLIParser::hasParameter(std::string parameter, char mode)
 }
 
 
+void CLIParser::setMinimumOptionsAmount(ushort min)
+{
+    this->minimumOptionsAmount = min;
+}
+
+
+void CLIParser::setHelpFlag(char helpFlag)
+{
+    this->helpFlag = helpFlag;
+    this->hasHelpFlag = true;
+}
+
+
 void CLIParser::parse(int argc, const char* argv[])
 {
-    if (argc <= 1) {
-        throw std::string("Invalid syntax: Please enter the input file. Use the -h flag for help.");
+    if (argc <= this->minimumOptionsAmount) {
+        std::string errMsg = "Invalid input: you must specify at least " + std::to_string(this->minimumOptionsAmount) + " option(s).";
+        if (hasHelpFlag)
+            throw errMsg + " Use the -" + this->helpFlag + " flag for help.";
+        else throw errMsg;
     }
 
     for (int i = 1; i < argc; ++i)

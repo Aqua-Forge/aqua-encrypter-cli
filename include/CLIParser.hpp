@@ -30,6 +30,19 @@ public:
      */
     bool hasParameter(std::string parameter, char mode=STR_FLAG_MODE);
 
+    /**
+     * @brief Set the minimum amount of Options
+     * 
+     * @param min minimum amount of options
+     * @param errMsg the error message displayed if the minimum number of options is not entered.
+     */
+    void setMinimumOptionsAmount(u_short min);
+
+    /**
+     * @brief Set the help option flag. Its useful in error messages.
+     * 
+     */
+    void setHelpFlag(char helpFlag);
 
     /**
      * @brief Executes the encrypter
@@ -38,5 +51,8 @@ public:
     void execute();
 
 private:
+    u_short minimumOptionsAmount = 0;
+    bool hasHelpFlag = false;
+    char helpFlag;
     std::map<char, Parameter> *parameters;
 };

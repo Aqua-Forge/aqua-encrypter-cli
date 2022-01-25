@@ -7,6 +7,9 @@ int main(int argc, char const *argv[])
     Encrypter encrypter;
     CLIParser parser(encrypter.getOptions());
 
+    parser.setMinimumOptionsAmount(1);
+    parser.setHelpFlag('h');
+
     try {
         parser.parse(argc, argv);
         parser.execute();
