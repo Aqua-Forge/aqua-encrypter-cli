@@ -33,7 +33,6 @@ public:
      * @brief Set the minimum amount of Options
      *
      * @param min minimum amount of options
-     * @param errMsg the error message displayed if the minimum number of options is not entered.
      */
     void setMinimumOptionsAmount(u_short min);
 
