@@ -1,7 +1,6 @@
 #include "CLIParser.hpp"
 #include "Encrypter.hpp"
 
-
 int main(int argc, char const *argv[])
 {
     Encrypter encrypter;
@@ -10,11 +9,13 @@ int main(int argc, char const *argv[])
     parser.setMinimumOptionsAmount(1);
     parser.setHelpFlag('h');
 
-    try {
+    try
+    {
         parser.parse(argc, argv);
         parser.execute();
     }
-    catch (std::string err) {
+    catch (std::string err)
+    {
         std::cerr << err << std::endl;
         exit(1);
     }

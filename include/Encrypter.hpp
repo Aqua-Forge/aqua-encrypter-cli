@@ -5,7 +5,6 @@
 #define ENCRYPT_MODE 'e'
 #define DECRYPT_MODE 'd'
 
-
 class Encrypter
 {
 public:
@@ -26,7 +25,7 @@ public:
 
     /**
      * @brief Return the CLI options
-     * 
+     *
      */
     std::map<char, Parameter> &getOptions();
 

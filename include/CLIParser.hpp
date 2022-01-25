@@ -7,7 +7,6 @@
 #include "Helpers.hpp"
 #include "Parameter.hpp"
 
-
 /**
  * @brief Parses the command line arguments and returns a valid configuration for encryption
  *
@@ -20,19 +19,19 @@ public:
 
     /**
      * @brief Parses the input arguments.
-     * 
+     *
      */
-    void parse(int argc, const char* argv[]);
+    void parse(int argc, const char *argv[]);
 
     /**
      * @brief Checks if the parameter exists
-     * 
+     *
      */
-    bool hasParameter(std::string parameter, char mode=STR_FLAG_MODE);
+    bool hasParameter(std::string parameter, char mode = STR_FLAG_MODE);
 
     /**
      * @brief Set the minimum amount of Options
-     * 
+     *
      * @param min minimum amount of options
      * @param errMsg the error message displayed if the minimum number of options is not entered.
      */
@@ -40,13 +39,13 @@ public:
 
     /**
      * @brief Set the help option flag. Its useful in error messages.
-     * 
+     *
      */
     void setHelpFlag(char helpFlag);
 
     /**
      * @brief Executes the encrypter
-     * 
+     *
      */
     void execute();
 
